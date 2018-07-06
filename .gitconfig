@@ -1,0 +1,42 @@
+[user]
+        name = Sufiane Souissi
+        email = sufiane.souissi@ekino.com
+[color]
+    ui = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+[core]
+    autocrlf = false
+    safecrlf = true
+    pager = cat
+    #j'aurais pu changer pour tail, more, etc
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    lp = log -p
+    lt = log --topo-order
+    gl = log --graph
+    glt = log --pretty=format:'%h : %s' --topo-order --graph
+    rl = reflog
+    sb = show-branch
+    brm = branch --merged
+    brnm = branch --no-merged
+    ls = ls-files
+    pu = pull
+    serve = daemon --reuseaddr --base-path=. --export-all --verbose
+    unpushed = log --branches --not --remotes --decorate --oneline
+    lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
+[branch]
+    #git pull --rebase
+
+[rerere]
+        # If, like me, you like rerere, decomment these
+        # autoupdate = true
+        enabled = true
+[pull]
+        rebase = true
+
