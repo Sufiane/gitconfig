@@ -30,6 +30,8 @@
     serve = daemon --reuseaddr --base-path=. --export-all --verbose
     unpushed = log --branches --not --remotes --decorate --oneline
     lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
+    # feel free to change the branches name if needed
+    cleanup = git branch --merged development | egrep -v "(^\*|master|development)" | xargs git branch -d 
 [branch]
     #git pull --rebase
 
