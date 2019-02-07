@@ -31,7 +31,8 @@
     unpushed = log --branches --not --remotes --decorate --oneline
     lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
     # feel free to change the branches name if needed
-    cleanup = git branch --merged development | egrep -v "(^\*|master|development)" | xargs git branch -d 
+    cleanup = "!git branch --merged develop | grep -x '^\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+    cleanup-master = "!git branch --merged master | grep -x '^\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 [branch]
     #git pull --rebase
 
