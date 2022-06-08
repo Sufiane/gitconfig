@@ -1,21 +1,22 @@
 [user]
-        name = Sufiane Souissi
+        name = Sufiane
         email = su.souissi@gmail.com
+        signingkey = F7BC8F5D6EE71DA7
 [color]
     ui = auto
     branch = auto
     diff = auto
     interactive = auto
     status = auto
-[core]
-    autocrlf = false
     safecrlf = true
-    pager = cat
+        pager = diff-so-fancy | less --tabs=4 -RFX
+        excludesfile = /Users/sufianeakadiego/.gitignore_global
     #j'aurais pu changer pour tail, more, etc
 [alias]
     st = status
-    ci = commit
+    ci = commit -S
     br = branch
+    df = ! git diff -u | diff-so-fancy
     co = checkout
     lp = log -p
     lt = log --topo-order
@@ -29,10 +30,9 @@
     pu = pull
     serve = daemon --reuseaddr --base-path=. --export-all --verbose
     unpushed = log --branches --not --remotes --decorate --oneline
-    lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
     # feel free to change the branches name if needed
-    cleanup = "!git branch --merged develop | grep -E -v 'master|develop' | xargs -n 1 git branch -d"
-    cleanup-master = "!git branch --merged master | grep -E -v 'master|develop' | xargs -n 1 git branch -d"
+    cleanup = "!git branch --merged dev | grep -E -v 'master|dev' | xargs git branch -d"
+    cleanup-master = "!git branch --merged master | grep -E -v 'master|dev' | xargs git branch -d"
 [branch]
     #git pull --rebase
 
@@ -42,4 +42,15 @@
         enabled = true
 [pull]
         rebase = true
+[interactive]
+        diffFilter = diff-so-fancy --patch
+[pager]
+        branch = false
+        log = false
+        tag = false
+        diff = true
 
+[commit]
+        gpgsign = true
+[gpg]
+        program = gpg
