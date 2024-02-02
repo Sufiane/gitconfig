@@ -18,6 +18,7 @@
     br = branch
     df = ! git diff -u | diff-so-fancy
     co = checkout
+    lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
     lp = log -p
     lt = log --topo-order
     gl = log --graph
